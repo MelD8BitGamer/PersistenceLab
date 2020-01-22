@@ -8,8 +8,15 @@
 
 import Foundation
 
+
+
+struct PixaBayImage: Codable {
+    let hits: [Hits]
+  
+}
+
 struct Hits: Codable {
-    let largeImageUrl: String
+    let largeImageURL: String
     let id: Int
     let tags: String
     let user: String

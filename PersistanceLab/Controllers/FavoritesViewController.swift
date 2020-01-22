@@ -10,21 +10,21 @@ import UIKit
 
 class FavoritesViewController: UIViewController {
 
+    @IBOutlet weak var favoriteCollectionView: UICollectionView!
+    
+    var allFavoriteImages = [Hits]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+          guard let cell = sender as? ImagesCollectionViewCell,
+            let indexPath = favoriteCollectionView.indexPath(for: cell),
+            let detailedVC = segue.destination as? DetailedViewController else {
+                      fatalError("Could not segue")}
+              let eachCell = allFavoriteImages[indexPath.row]
+              detailedVC.allDetailedImages = eachCell
     }
-    */
 
 }

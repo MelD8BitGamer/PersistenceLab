@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct SecretKey {
+    
+    static let key = "14936754-1509a9dc509d49e17ba3f15ab"
+    
+}
