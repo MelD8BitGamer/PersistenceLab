@@ -14,27 +14,36 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var allPics = [Hits]() {
-    didSet{
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        didSet{
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
         }
-    }
     }
     
     var userQuery = "" {
-    didSet {
-        allPics = allPics.filter{$0.tags.lowercased().contains(self.userQuery.lowercased())}
+        didSet {
+            APIClient.fetchData(userSearch: userQuery) {[weak self] (result) in
+                switch result {
+                case .failure(let appError):
+                    DispatchQueue.main.async {
+                        self?.showAlert(title: "Error", message: "Cannot load pics \(appError)")
+                    }
+                //there is no need to filter through tags because the search bar ACTS like a filter(NOTE: Even though this API will not know what kind of pictures to whether or not you tell it how to find the picture(messed up API)
+                case .success(let data):
+                    //no need for Dispatch QUE because the UI is not changing
+                    self?.allPics = data
+                }
             }
         }
-
-        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageSearch.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
-        setUp()
+        // setUp()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,25 +54,10 @@ class ViewController: UIViewController {
         let eachCell = allPics[indexPath.row]
         detailedVC.allDetailedImages = eachCell
     }
-    func setUp() {
-           APIClient.fetchData() { [weak self] (result) in
-               switch result {
-               case .failure(let appError):
-                   DispatchQueue.main.async {
-                       self?.showAlert(title: "Error", message: "Cannot load pics \(appError)")
-                   }
-               case .success(let data):
-                   self?.allPics = data
-               }
-           }
-       }
-
-@IBAction func favoritesButton(_ sender: UIBarButtonItem) {
-}
 }
 
 extension ViewController: UICollectionViewDataSource {
-   
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allPics.count
     }
@@ -75,35 +69,38 @@ extension ViewController: UICollectionViewDataSource {
         let pictureImage = allPics[indexPath.row]
         cell.configureCell(with: pictureImage)
         return cell
-       }
-       
+    }
+    
 }
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
-   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-   let interItemSpacing: CGFloat = 10 //This is the space between items. if we dont type annotate it from Int to cgfloat it will expect an Int
-   let maxWidth = UIScreen.main.bounds.size.width //device width
-   let numberOfItems: CGFloat = 2 //items
-   let totalSpacing: CGFloat = numberOfItems * interItemSpacing
-   let itemWidth: CGFloat = (maxWidth - totalSpacing) / numberOfItems
-   
-   return CGSize(width: itemWidth, height: itemWidth)
-}
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let interItemSpacing: CGFloat = 10 //This is the space between items. if we dont type annotate it from Int to cgfloat it will expect an Int
+        let maxWidth = UIScreen.main.bounds.size.width //device width
+        let numberOfItems: CGFloat = 2 //items
+        let totalSpacing: CGFloat = numberOfItems * interItemSpacing
+        let itemWidth: CGFloat = (maxWidth - totalSpacing) / numberOfItems
+        
+        return CGSize(width: itemWidth, height: 100)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-           return UIEdgeInsets(top: 20, left: 0, bottom: 5, right: 0)
-           //interface builder automatically resizes(self-resizing) the cells by default so we have to fix that!!!! it is done via interface builder NOTCODE. So we have to set the estimated size on the collectionview from automatic to none
-       }
+        return UIEdgeInsets(top: 20, left: 0, bottom: 5, right: 0)
+        //interface builder automatically resizes(self-resizing) the cells by default so we have to fix that!!!! it is done via interface builder NOT CODE. So we have to set the estimated size on the collectionview from automatic to none
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-           return 5
-       }
+        return 5
+    }
 }
 
 extension ViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-           guard !searchText.isEmpty else {
-               setUp()
-               return
-           }
-           userQuery = searchText
-       }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let userSearchQuery = searchBar.text else {
+            print("This is the best option but your search text is flawed")
+            return
+        }
+        userQuery = userSearchQuery
+    }
 }
+

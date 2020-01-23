@@ -11,9 +11,9 @@ import NetworkHelper
 
 
 struct APIClient {
-    static func fetchData(completion: @escaping (Result<[Hits], AppError>) -> ()) {
+    static func fetchData(userSearch: String , completion: @escaping (Result<[Hits], AppError>) -> ()) {
         
-        let endpointURLString = "https://pixabay.com/api/?key=\(SecretKey.key)&q="
+        let endpointURLString = "https://pixabay.com/api/?key=\(SecretKey.key)&q=\(userSearch)"
         
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))

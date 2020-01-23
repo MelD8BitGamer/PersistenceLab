@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataPersistence
 
 class DetailedViewController: UIViewController {
     
@@ -16,11 +17,22 @@ class DetailedViewController: UIViewController {
     @IBOutlet weak var idOutlet: UILabel!
     
     var allDetailedImages: Hits?
-    
+    var persistanceHelperRef = DataPersistence<Hits>()//This is your handler to use DataPersistance
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
     }
+    
+    @IBAction func favoriteHeartButton(_ sender: UIBarButtonItem) {
+        guard let unwrapped = allDetailedImages else {
+         showAlert(title: "error", message: "Nothing worked")
+            return
+        }
+    
+        persistanceHelperRef.save(item: unwrapped)
+        //this message is for the user that they have added this into their favorites
+        showAlert(title: "Added to Favorites", message: "You successfully added this to your favorites! You may now find this picture in your favorites tab")
+        }
     
     func setUp() {
         guard let x = allDetailedImages else {

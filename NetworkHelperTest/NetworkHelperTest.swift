@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import NetworkHelper
 @testable import PersistanceLab //this import MUST be the same name as your project so it can be used anywhere in the code
 
 

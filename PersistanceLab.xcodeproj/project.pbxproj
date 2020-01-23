@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,13 +15,14 @@
 		4DC31ADB23D0F4090059EB0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DC31AD923D0F4090059EB0B /* LaunchScreen.storyboard */; };
 		4DC31AE723D0F5BB0059EB0B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31AE623D0F5BB0059EB0B /* FavoritesViewController.swift */; };
 		4DC31AE923D0F5CB0059EB0B /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31AE823D0F5CB0059EB0B /* DetailedViewController.swift */; };
-		4DC31AED23D0FC5D0059EB0B /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31AEC23D0FC5D0059EB0B /* NetworkHelper.swift */; };
-		4DC31AEF23D0FC8F0059EB0B /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31AEE23D0FC8F0059EB0B /* AppError.swift */; };
 		4DC31AFA23D0FE6D0059EB0B /* NetworkHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31AF923D0FE6D0059EB0B /* NetworkHelperTest.swift */; };
 		4DC31B0223D100360059EB0B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31B0123D100360059EB0B /* APIClient.swift */; };
 		4DC31B0423D1049F0059EB0B /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31B0323D1049F0059EB0B /* ImageModel.swift */; };
 		4DC31B0623D105AB0059EB0B /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31B0523D105AB0059EB0B /* ImagesCollectionViewCell.swift */; };
 		4DC31B0923D10DCC0059EB0B /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC31B0823D10DCC0059EB0B /* Secrets.swift */; };
+		4DD556DB23D7B6FF00FDEF0B /* AlertExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD556DA23D7B6FF00FDEF0B /* AlertExtensions.swift */; };
+		4DD556DE23D7C19B00FDEF0B /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD556DD23D7C19B00FDEF0B /* FileManager.swift */; };
+		4DD556E123D7C87800FDEF0B /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4DD556E023D7C87800FDEF0B /* ImageKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +46,6 @@
 		4DC31ADC23D0F4090059EB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DC31AE623D0F5BB0059EB0B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4DC31AE823D0F5CB0059EB0B /* DetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
-		4DC31AEC23D0FC5D0059EB0B /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkHelper.swift; path = PersistanceLab/Model/NetworkHelper.swift; sourceTree = SOURCE_ROOT; };
-		4DC31AEE23D0FC8F0059EB0B /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		4DC31AF723D0FE6D0059EB0B /* NetworkHelperTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkHelperTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DC31AF923D0FE6D0059EB0B /* NetworkHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelperTest.swift; sourceTree = "<group>"; };
 		4DC31AFB23D0FE6D0059EB0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +53,8 @@
 		4DC31B0323D1049F0059EB0B /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageModel.swift; path = PersistanceLab/Controllers/ImageModel.swift; sourceTree = SOURCE_ROOT; };
 		4DC31B0523D105AB0059EB0B /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4DC31B0823D10DCC0059EB0B /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		4DD556DA23D7B6FF00FDEF0B /* AlertExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtensions.swift; sourceTree = "<group>"; };
+		4DD556DD23D7C19B00FDEF0B /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD556E123D7C87800FDEF0B /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,7 +99,9 @@
 			children = (
 				4DC31ACE23D0F4070059EB0B /* AppDelegate.swift */,
 				4DC31AD023D0F4070059EB0B /* SceneDelegate.swift */,
+				4DC31AE523D0F4470059EB0B /* Extensions */,
 				4DC31AE423D0F4410059EB0B /* Model */,
+				4DD556DC23D7C17100FDEF0B /* DocumentDirectory */,
 				4DC31AE323D0F43B0059EB0B /* Network */,
 				4DC31B0723D10D9E0059EB0B /* Secrets */,
 				4DC31AE223D0F4320059EB0B /* Controllers */,
@@ -122,9 +126,7 @@
 		4DC31AE323D0F43B0059EB0B /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				4DC31AEC23D0FC5D0059EB0B /* NetworkHelper.swift */,
 				4DC31B0123D100360059EB0B /* APIClient.swift */,
-				4DC31AEE23D0FC8F0059EB0B /* AppError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -134,7 +136,6 @@
 			children = (
 				4DC31B0523D105AB0059EB0B /* ImagesCollectionViewCell.swift */,
 				4DC31B0323D1049F0059EB0B /* ImageModel.swift */,
-				4DC31AE523D0F4470059EB0B /* Extensions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +143,7 @@
 		4DC31AE523D0F4470059EB0B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4DD556DA23D7B6FF00FDEF0B /* AlertExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +165,14 @@
 			path = Secrets;
 			sourceTree = "<group>";
 		};
+		4DD556DC23D7C17100FDEF0B /* DocumentDirectory */ = {
+			isa = PBXGroup;
+			children = (
+				4DD556DD23D7C19B00FDEF0B /* FileManager.swift */,
+			);
+			path = DocumentDirectory;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +189,9 @@
 			dependencies = (
 			);
 			name = PersistanceLab;
+			packageProductDependencies = (
+				4DD556E023D7C87800FDEF0B /* ImageKit */,
+			);
 			productName = PersistanceLab;
 			productReference = 4DC31ACB23D0F4070059EB0B /* PersistanceLab.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 4DC31AC223D0F4070059EB0B;
+			packageReferences = (
+				4DD556DF23D7C87800FDEF0B /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = 4DC31ACC23D0F4070059EB0B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -264,14 +280,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DC31AED23D0FC5D0059EB0B /* NetworkHelper.swift in Sources */,
 				4DC31B0423D1049F0059EB0B /* ImageModel.swift in Sources */,
 				4DC31AD323D0F4070059EB0B /* ViewController.swift in Sources */,
 				4DC31ACF23D0F4070059EB0B /* AppDelegate.swift in Sources */,
 				4DC31AE923D0F5CB0059EB0B /* DetailedViewController.swift in Sources */,
-				4DC31AEF23D0FC8F0059EB0B /* AppError.swift in Sources */,
 				4DC31AE723D0F5BB0059EB0B /* FavoritesViewController.swift in Sources */,
 				4DC31AD123D0F4070059EB0B /* SceneDelegate.swift in Sources */,
+				4DD556DE23D7C19B00FDEF0B /* FileManager.swift in Sources */,
+				4DD556DB23D7B6FF00FDEF0B /* AlertExtensions.swift in Sources */,
 				4DC31B0623D105AB0059EB0B /* ImagesCollectionViewCell.swift in Sources */,
 				4DC31B0223D100360059EB0B /* APIClient.swift in Sources */,
 				4DC31B0923D10DCC0059EB0B /* Secrets.swift in Sources */,
@@ -537,6 +553,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4DD556DF23D7C87800FDEF0B /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4DD556E023D7C87800FDEF0B /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD556DF23D7C87800FDEF0B /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4DC31AC323D0F4070059EB0B /* Project object */;
 }

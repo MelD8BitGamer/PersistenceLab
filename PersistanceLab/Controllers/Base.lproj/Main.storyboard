@@ -19,14 +19,14 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sJd-la-3Hr">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ARe-eV-yKI">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ARe-eV-yKI">
                                     <size key="itemSize" width="267" height="291"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ily-3E-V6F" customClass="ImagesCollectionViewCell" customModule="PersistanceLab" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favoriteCell" id="Ily-3E-V6F" customClass="ImagesCollectionViewCell" customModule="PersistanceLab" customModuleProvider="target">
                                         <rect key="frame" x="73.5" y="0.0" width="267" height="291"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="br7-bf-68d">
@@ -85,7 +85,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="f3t-40-9EJ">
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZRM-z1-IX2">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZRM-z1-IX2">
                                     <size key="itemSize" width="282" height="272"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -131,13 +131,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pfX-H2-W2Q"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zB3-po-ven">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" style="plain" id="HjN-OW-no1">
-                            <connections>
-                                <action selector="favoritesButton:" destination="d2x-Se-Wue" id="BoJ-Xz-BFx"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="zB3-po-ven"/>
                     <connections>
                         <outlet property="collectionView" destination="f3t-40-9EJ" id="SKr-0L-rmU"/>
                         <outlet property="imageSearch" destination="gzw-zp-2kH" id="w6X-ef-RlT"/>
@@ -197,7 +191,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tsO-xh-PvJ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fYT-wm-kdf"/>
+                    <navigationItem key="navigationItem" id="fYT-wm-kdf">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="suit.heart" catalog="system" id="3p7-kz-dOF">
+                            <connections>
+                                <action selector="favoriteHeartButton:" destination="Nh6-Bj-PnM" id="iLh-Kk-HLS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailedImageView" destination="TMh-wi-wkZ" id="gzf-Si-gWJ"/>
                         <outlet property="idOutlet" destination="aH2-OJ-tyE" id="lL0-eo-u6G"/>
@@ -286,8 +286,8 @@
     </scenes>
     <resources>
         <image name="rectangle.grid.2x2" catalog="system" width="64" height="48"/>
-        <image name="star" catalog="system" width="64" height="58"/>
         <image name="star.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="suit.heart" catalog="system" width="64" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eKi-hF-6k7"/>

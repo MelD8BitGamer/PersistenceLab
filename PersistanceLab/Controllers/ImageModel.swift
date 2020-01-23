@@ -15,7 +15,7 @@ struct PixaBayImage: Codable {
   
 }
 
-struct Hits: Codable {
+struct Hits: Codable, Equatable {
     let largeImageURL: String
     let id: Int
     let tags: String
